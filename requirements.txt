@@ -1,0 +1,7 @@
+scapy==2.6.1
+# reportlab is optional (used for PDF output). If you don't need PDF output you can omit this.
+reportlab>=3.5.0
+
+# Notes:
+# - This file pins scapy to the version observed when the project was tested (2.6.1).
+# - If you prefer not to pin exact versions, remove the ==2.6.1 pin for scapy.
