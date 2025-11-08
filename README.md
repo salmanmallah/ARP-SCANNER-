@@ -1,3 +1,8 @@
+# ARP Scanner — concise
+
+Simple ARP-based LAN scanner (IP ↔ MAC) using Scapy.
+
+Provides automatic interface selection, optional manual interface choice, configurable timeout/retries, and optional output to TXT/PDF.
 # ARP Scanner
 
 A small, cross-platform ARP network scanner built with Scapy.
@@ -36,6 +41,24 @@ This repository contains a small, easy-to-run scanner (`main.py`) with a few hel
 
 ## Quick start
 
+1. (Optional) Activate your virtualenv if you use one:
+
+```bash
+source myenv/bin/activate  # or myenv\Scripts\activate on Windows
+```
+
+2. Run the scanner:
+
+```bash
+python main.py -t 192.168.100.0/24
+```
+
+3. Save output (TXT or PDF):
+
+```bash
+python main.py -t 192.168.100.0/24 -o scan_output.pdf
+```
+
 Recommended: use the included virtual environment (`myenv`) or create your own.
 
 Activate the venv (example for Git Bash / WSL):
@@ -60,7 +83,21 @@ If `reportlab` is missing the tool will save TXT instead and print a notice.
 
 ---
 
-## Usage & options
+## Usage (essential options)
+
+- `-t, --target` (required): target IP or subnet, e.g. `192.168.1.1/24`
+- `-i, --iface` (optional): interface (NPF key or friendly name)
+- `--list-ifaces`: list available interfaces
+- `--timeout`: seconds to wait per attempt (default 2.0)
+- `--retries`: ARP attempts to perform and aggregate replies (default 2)
+- `-o, --output`: output filename (use `.pdf` or `.txt` to select format)
+- `--format`: explicitly choose `txt` or `pdf`
+
+Example:
+
+```bash
+python main.py -t 192.168.100.0/24 --retries 3 --timeout 2 -o scan_output.pdf
+```
 
 - `-t, --target` (required): target IP or subnet, e.g. `192.168.1.1/24`
 - `-i, --iface` (optional): explicit interface (NPF key or friendly name)
@@ -91,7 +128,21 @@ myenv/Scripts/python.exe main.py -t 192.168.100.0/24 -o results.pdf
 
 ---
 
-## How interface selection works
+## Interface selection (short)
+
+If you don't pass `-i`, the scanner prefers an interface with an IP in the target subnet; otherwise it falls back to a non-loopback interface with a valid MAC.
+
+## Snapshot placeholders
+
+Add terminal/output snapshots into `docs/snapshots/` and link them into this README. Example markdown to include:
+
+```markdown
+### Terminal run
+![Terminal snapshot](docs/snapshots/terminal_snapshot.png)
+
+### Output file
+[Download scan output PDF](docs/snapshots/scan_output.pdf)
+```
 
 1. If you provide `-i`, the script will try to match either the raw NPF key (\\Device\\NPF_{...}) or a friendly name.
 2. If a target network is given, it prefers an interface whose IPv4 address is in that subnet.
@@ -145,7 +196,9 @@ Tips:
 
 ---
 
-## Troubleshooting (Windows)
+## License
+
+MIT-style: use and modify freely.
 
 - Install Npcap — WinPcap is deprecated.
 - Run your shell as Administrator to send raw packets.
