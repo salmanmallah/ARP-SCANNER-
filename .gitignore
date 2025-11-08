@@ -1,0 +1,34 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+myenv/
+venv/
+.env/
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs and runtime
+*.log
+*.tmp
+
+# Scan outputs (optional) - keep local but don't commit by default
+scan_output.*
+results.*
+
+# Test and coverage
+.pytest_cache/
+.coverage
+
+# Backup files
+*~
+*.swp
+
+# Ignore node_modules (if ever added)
+node_modules/
