@@ -138,10 +138,10 @@ Add terminal/output snapshots into `docs/snapshots/` and link them into this REA
 
 ```markdown
 ### Terminal run
-![Terminal snapshot](docs/snapshots/terminal_snapshot.png)
+![Terminal snapshot](snapshots/snapshot_0.png)
 
 ### Output file
-[Download scan output PDF](docs/snapshots/scan_output.pdf)
+![Terminal snapshot](snapshots/snapshot_1.png)
 ```
 
 1. If you provide `-i`, the script will try to match either the raw NPF key (\\Device\\NPF_{...}) or a friendly name.
@@ -152,33 +152,8 @@ This avoids Scapy trying to use stale or loopback-only adapters and causing hard
 
 ---
 
-## Snapshot placeholders (add your terminal + output snapshots here)
 
-You can add screenshots or output files later. Recommended folder: `docs/snapshots/`.
 
-1. Create the folder in the repo:
-
-```bash
-mkdir -p docs/snapshots
-```
-
-2. Place your terminal snapshot (PNG) and output snapshot (PNG or the actual output PDF) inside `docs/snapshots/`.
-
-3. Add the following markdown into this README where you'd like the snapshot to appear (example):
-
-```markdown
-### Terminal run (example)
-![Terminal snapshot](docs/snapshots/terminal_snapshot.png)
-
-### Output file (example)
-[Download scan output PDF](docs/snapshots/scan_output.pdf)
-or
-![Output snapshot](docs/snapshots/output_snapshot.png)
-```
-
-When you're ready, commit the snapshots or keep them locally and remove them from tracking via `.gitignore` as desired.
-
----
 
 ## Why some devices may not appear
 
