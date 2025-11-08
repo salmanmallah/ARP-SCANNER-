@@ -138,10 +138,12 @@ Add terminal/output snapshots into `docs/snapshots/` and link them into this REA
 
 ```markdown
 ### Terminal run
-![[Terminal snapshot](snapshots/snapshot_0.png)](https://github.com/salmanmallah/ARP-SCANNER-/blob/master/snapshots/snapshot_0.png)
+![Terminal snapshot](https://github.com/salmanmallah/ARP-SCANNER-/blob/master/snapshots/snapshot_0.png)
+
 
 ### Output file
-![Terminal snapshot](snapshots/snapshot_1.png)
+![Terminal snapshot](https://github.com/salmanmallah/ARP-SCANNER-/blob/master/snapshots/snapshot_1.png)
+
 ```
 
 1. If you provide `-i`, the script will try to match either the raw NPF key (\\Device\\NPF_{...}) or a friendly name.
